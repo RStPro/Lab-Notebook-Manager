@@ -40,3 +40,11 @@ const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
+
+// debug mode 
+
+app.use((req, res, next) => {
+  console.log(`[${req.method}] ${req.path} - Headers:`, req.headers);
+  console.log('Body:', req.body);
+  next();
+});
